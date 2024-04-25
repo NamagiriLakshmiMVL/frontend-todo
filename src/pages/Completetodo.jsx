@@ -38,9 +38,10 @@ export function Completetodo(props) {
                 marginLeft: "110px",
                 display: "flex",
                 justifyContent: "space-between",
+                alignItems:"center"
               }}
             >
-              <Box>
+              <Box sx={{width:"400px",marginLeft:"10px",color:"gold"}}>
                 <Typography variant="h5">{val.message}</Typography>
               </Box>
               <Box>

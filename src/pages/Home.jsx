@@ -5,7 +5,7 @@ import { Message } from "./Message";
 export function Home(props) {
   return (
     <Box>
-      <Box sx={{ width: "100%", height: "633px", display: "flex" }}>
+      <Box sx={{ width: "100%", height: "729px", display: "flex" }}>
         <Box
           sx={{ width: "25%", height: "100%", backgroundColor: "#ADEFD1FF" }}
         ></Box>

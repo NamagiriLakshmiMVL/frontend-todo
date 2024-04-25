@@ -67,11 +67,12 @@ export function Message(props) {
           variant="h6"
           sx={{ color: "lightblue", textAlign: "center", marginTop: "10px" }}
         >
-          Plan your day,Plan your tasks,Plan your Success
+          Plan your day,Plan your tasks,Plan your success
         </Typography>
       </Box>
 
       <Box>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <Box
           sx={{
             display: "flex",
@@ -80,7 +81,7 @@ export function Message(props) {
             gap: "20px",
           }}
         >
-          <form onSubmit={(e) => handleSubmit(e)}>
+         
             <TextField
               name="message"
               id="outlined-basic"
@@ -90,24 +91,25 @@ export function Message(props) {
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />
-            <Button type="submit" variant="contained" color="success">
+            <Button sx={{marginLeft:"10px"}}type="submit" variant="contained" color="success">
               Create
             </Button>
-          </form>
+         
         </Box>
+        </form>
         <Box
           sx={{
             marginTop: "15px",
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "center", 
             gap: "20px",
           }}
         >
-          <Button color="inherit" onClick={() => handleComplete()}>
+          <Button variant="outlined" color="primary" onClick={() => handleComplete()}>
             Mytodo's
           </Button>
 
-          <Button color="inherit" onClick={() => handletodo()}>
+          <Button variant="outlined" color="primary" onClick={() => handletodo()}>
             Completed todo's
           </Button>
         </Box>

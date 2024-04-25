@@ -41,7 +41,7 @@ export function Mytodo({ setInput, sample, setId }) {
   };
   return (
     <Box>
-      <pre>{JSON.stringify(todolist,2,null)}</pre>
+      {/* <pre>{JSON.stringify(todolist,2,null)}</pre> */}
       <Box sx={{ marginTop: "20px" }}>
         <Box sx={{ marginTop: "20px", width: "10px" }}>
           {todolist.map((val) => (
@@ -53,18 +53,21 @@ export function Mytodo({ setInput, sample, setId }) {
                   marginLeft: "110px",
                   display: "flex",
                   justifyContent: "space-between",
+                  height:"50px",
+                  marginTop:"10px",
+                  alignItems:"center"
                 }}
               >
                 <Box>
-                  <Typography sx={{ width: "250px" }} variant="h5">
+                  <Typography sx={{ width: "250px",marginLeft:"5px",color:"gold" }} variant="h5">
                     {val.message}
                   </Typography>
                 </Box>
                 <Box>
-                 <Button onClick={() => handleCompleted(val)}>
+                 <Button  onClick={() => handleCompleted(val)}>
                     <CheckCircleOutlineIcon />
                   </Button> 
-                   <Button onClick={() => handleEdit(val)}>
+                   <Button variant="inherit" onClick={() => handleEdit(val)}>
                     <ModeEditIcon />
                   </Button>
                   <Button onClick={() => handleDelete(val)}>

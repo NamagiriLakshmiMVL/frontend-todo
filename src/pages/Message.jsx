@@ -3,8 +3,12 @@ import React, { useState } from "react";
 import { Mytodo } from "./Mytodo";
 import { Completetodo } from "./Completetodo";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { API } from "../API";
 
 export function Message(props) {
+  const token = localStorage.getItem("x-auth-token");
+
   const [sample, setSample] = useState(false);
   const [id, setId] = useState("One");
   const [input, setInput] = useState("");
@@ -31,15 +35,25 @@ export function Message(props) {
     {
       id === "One" &&
         axios
-          .post("http://localhost:2000/todo/message", result)
-          .then((res) => alert(res.data));
+          .post(`${API}/todo/message`, result,{
+            headers:{"x-auth-token":token}
+          })
+          .then((res) => toast.success(res.data,{
+            position:"top-center",
+            autoClose:1000
+          }));
     }
 
     {
       id !== "One" &&
         axios
-          .post("http://localhost:2000/todo/edittodo", result2)
-          .then((res) => alert(res.data));
+          .post(`${API}/todo/edittodo`, result2,{
+            headers:{"x-auth-token":token}
+          })
+          .then((res) => toast.success(res.data,{
+            position:"top-center",
+            autoClose:1000
+          }));
     }
 
     setId("One");

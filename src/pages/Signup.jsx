@@ -3,6 +3,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { API } from "../API";
 
 export function Signup(props) {
   const [email,setEmail] = useState("")
@@ -23,16 +24,17 @@ export function Signup(props) {
         email,
         password
       }
-
-      axios.post("http://localhost:2000/user/signup",result)
+console.log(result)
+      axios.post(`${API}/user/signup`,result)
       .then((res)=>{
-        res.data === "User Created Successfully" ? toast.success(res.data,{
+        res.data.message === "User Created Successfully" ? toast.success(res.data.message,{
           position:"top-center",
           autoClose:1000
-        })&&navigate("/home") : toast.error(res.data,{
+        })&&navigate("/home") : toast.error(res.data.message,{
           position:"top-center",
           autoClose:1000
         })
+        localStorage.setItem("x-auth-token",res.data.token)
       })
     
     }
